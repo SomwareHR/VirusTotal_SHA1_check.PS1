@@ -57,7 +57,7 @@ $swVTFileReportWR = Invoke-WebRequest -Method GET -Uri "https://www.virustotal.c
 
 After that, run the script and give it an argument:
 
-```
+```powershell
 VirusTotal_IP_check.ps1 malware.exe
 ```
 
@@ -81,7 +81,7 @@ For test purposes, eicar.com sha1: 3395856CE81F2B7382DEE72602F798B642F14140
 ## WHEN, WHO
 
 ```
-VirusTotal_IP_check.PS1 v.21.0824.18
+VirusTotal_SHA1_check.PS1 v.21.0826.07
 (C)2021 SomwareHR
 https://github.com/SomwareHR
 License: MIT
