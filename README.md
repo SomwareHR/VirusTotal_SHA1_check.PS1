@@ -43,7 +43,14 @@ Tested on:
 
 ### Run
 
-First, implement your VT API key. Originally, script makes use of environment variable "zzVirusTotalAPI":
+Run the script and give it an argument - a file name or a hash:
+
+```powershell
+VirusTotal_SHA1_check.ps1 malware.exe
+VirusTotal_SHA1_check.ps1 3395856CE81F2B7382DEE72602F798B642F14140
+```
+
+You have to add your VT API key. Originally, script makes use of environment variable "zzVirusTotalAPI":
 
 ```powershell
 $swVTFileReportWR = Invoke-WebRequest -Method GET -Uri "https://www.virustotal.com/api/v3/files/$args" -Headers @{"x-apikey"="$Env:zzVirusTotalAPI"}
@@ -55,18 +62,14 @@ If you don't like the idea - hardcode API key:
 $swVTFileReportWR = Invoke-WebRequest -Method GET -Uri "https://www.virustotal.com/api/v3/files/$args" -Headers @{"x-apikey"="abcd1234efgh5678ijkl...blabla"}
 ```
 
-After that, run the script and give it an argument:
-
-```powershell
-VirusTotal_IP_check.ps1 malware.exe
-```
-
 ### Error management
 
-Script expects an argument from command line and it should be a filename (or full path).
-There is minimal error management - checks if file exists and if VirusTotal replies with an error.
+Script expects an argument from command line and it should be a filename (or full path) or a hash.
+There is minimal error management - checks if VirusTotal replies with an error.
 
-### ToDo
+
+
+## ToDo
 
 Nothing much if anything. It does what's expected - return a reputation.
 

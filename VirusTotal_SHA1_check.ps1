@@ -1,9 +1,9 @@
-if (-not(Test-Path -Path $args -PathType Leaf)) {
-	Write-Host "Some problem with file $args" -ForegroundColor Red
-	exit
+if (Test-Path -Path $args -PathType Leaf) {
+	$sha1=(Get-FileHash -Algorithm sha1 $args).hash
 }
-
-$sha1=(Get-FileHash -Algorithm sha1 $args).hash
+else {
+	$sha1=$args	# If file does not exist, than argument is already a hash
+}
 
 try {
 	$ProgressPreference = 'SilentlyContinue'
